@@ -1,6 +1,7 @@
 from .forms import RegistrationForm
 from .models import Account
 from carts.views import _cart_id
+from accounts.models import Account
 from carts.models import Cart, CartItem
 
 from django.shortcuts import render, redirect
