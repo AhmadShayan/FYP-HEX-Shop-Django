@@ -6,7 +6,10 @@ from .models import Order
 import datetime
 
 
-def place_order(request, total=0, quantity=0,):
+def payments(request):
+    return render(request, 'orders/payments.html')
+
+def place_order(request, total=0, quantity=0):
     current_user = request.user
     
     # if the cart is empty, redirect to the cart shopping page
@@ -57,4 +60,6 @@ def place_order(request, total=0, quantity=0,):
             return redirect('checkout')
     else:
         return redirect('checkout')
+    
+
     
