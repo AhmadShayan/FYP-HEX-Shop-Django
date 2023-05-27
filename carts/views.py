@@ -4,6 +4,7 @@ from .models import Cart, CartItem
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 
 def _cart_id(request):
@@ -121,6 +122,7 @@ def cart(request, total=0, quantity=0, cart_items=None):
     }
     return render(request, 'store/cart.html', context)
 
+@login_required(login_url='login')
 def checkout(request, total=0, quantity=0, cart_items=None):
     tax = 0
     grand_total = 0
